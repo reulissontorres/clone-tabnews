@@ -15,7 +15,7 @@ async function query(queryObj) {
   }
 }
 
-async function getNewClient(){
+async function getNewClient() {
   const client = new Client({
     host: process.env.POSTGRES_HOST,
     port: process.env.POSTGRES_PORT,
@@ -25,8 +25,8 @@ async function getNewClient(){
     ssl: getSSLValues(),
   });
 
-  client.connect()
-  
+  client.connect();
+
   return client;
 }
 
@@ -36,7 +36,7 @@ function getSSLValues() {
       ca: process.env.POSTGRES_CA,
     };
   }
-  process.env.NODE_ENV === "production" ? true : false;
+  return process.env.NODE_ENV === "production" ? true : false;
 }
 
 export default {
